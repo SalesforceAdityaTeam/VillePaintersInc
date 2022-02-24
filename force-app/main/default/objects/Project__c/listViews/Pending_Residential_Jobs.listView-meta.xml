@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pending_Residential_Jobs</fullName>
+    <columns>NAME</columns>
+    <columns>Project_Scope__c</columns>
+    <columns>City__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Team_Number__c</columns>
+    <columns>Project_Hours__c</columns>
+    <columns>Pre_Job_Walk_Thru__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>Reporting_Month__c</columns>
+    <columns>Stage__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Stage__c</field>
+        <operation>equals</operation>
+        <value>Scheduled</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Project__c.Residential</value>
+    </filters>
+    <label>4 Pending Residential Jobs</label>
+</ListView>

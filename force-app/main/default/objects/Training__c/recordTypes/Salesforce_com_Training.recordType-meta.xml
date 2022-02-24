@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salesforce_com_Training</fullName>
+    <active>true</active>
+    <label>Salesforce.com Training</label>
+    <picklistValues>
+        <picklist>Group__c</picklist>
+        <values>
+            <fullName>Group1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Group2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Best Practices</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Salesforce%2Ecom Training</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

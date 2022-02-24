@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Role__c</fullName>
+    <externalId>false</externalId>
+    <label>Account Role</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Architect Firm - Primarly Team</fullName>
+                <default>false</default>
+                <label>Architect Firm - Primarly Team</label>
+            </value>
+            <value>
+                <fullName>Architect Firm - Secondary Team</fullName>
+                <default>false</default>
+                <label>Architect Firm - Secondary Team</label>
+            </value>
+            <value>
+                <fullName>Building Manager</fullName>
+                <default>false</default>
+                <label>Building Manager</label>
+            </value>
+            <value>
+                <fullName>Competitor (dealer)</fullName>
+                <default>false</default>
+                <label>Competitor (dealer)</label>
+            </value>
+            <value>
+                <fullName>Competitor (manufacturer)</fullName>
+                <default>false</default>
+                <label>Competitor (manufacturer)</label>
+            </value>
+            <value>
+                <fullName>Construction Manager</fullName>
+                <default>false</default>
+                <label>Construction Manager</label>
+            </value>
+            <value>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+                <label>Consultant</label>
+            </value>
+            <value>
+                <fullName>Control Contractor (Div 25)</fullName>
+                <default>false</default>
+                <label>Control Contractor (Div 25)</label>
+            </value>
+            <value>
+                <fullName>Control Engineer (Div 25)</fullName>
+                <default>false</default>
+                <label>Control Engineer (Div 25)</label>
+            </value>
+            <value>
+                <fullName>Dealer of Altex</fullName>
+                <default>false</default>
+                <label>Dealer of Altex</label>
+            </value>
+            <value>
+                <fullName>Design-Build Contractor</fullName>
+                <default>false</default>
+                <label>Design-Build Contractor</label>
+            </value>
+            <value>
+                <fullName>Designer Firm</fullName>
+                <default>false</default>
+                <label>Designer Firm</label>
+            </value>
+            <value>
+                <fullName>Developer,</fullName>
+                <default>false</default>
+                <label>Developer,</label>
+            </value>
+            <value>
+                <fullName>Developer/Contractor,</fullName>
+                <default>false</default>
+                <label>Developer/Contractor,</label>
+            </value>
+            <value>
+                <fullName>Electrical Contractor (Div 26)</fullName>
+                <default>false</default>
+                <label>Electrical Contractor (Div 26)</label>
+            </value>
+            <value>
+                <fullName>Electrical Engineer (Div 26)</fullName>
+                <default>false</default>
+                <label>Electrical Engineer (Div 26)</label>
+            </value>
+            <value>
+                <fullName>End User</fullName>
+                <default>false</default>
+                <label>End User</label>
+            </value>
+            <value>
+                <fullName>General Contractor (GC)</fullName>
+                <default>false</default>
+                <label>General Contractor (GC)</label>
+            </value>
+            <value>
+                <fullName>Installation company</fullName>
+                <default>false</default>
+                <label>Installation company</label>
+            </value>
+            <value>
+                <fullName>Mechanical Engineer</fullName>
+                <default>false</default>
+                <label>Mechanical Engineer</label>
+            </value>
+            <value>
+                <fullName>Owner</fullName>
+                <default>false</default>
+                <label>Owner</label>
+            </value>
+            <value>
+                <fullName>PDC Team (when P3 project)</fullName>
+                <default>false</default>
+                <label>PDC Team (when P3 project)</label>
+            </value>
+            <value>
+                <fullName>Spec writter Firm</fullName>
+                <default>false</default>
+                <label>Spec writter Firm</label>
+            </value>
+            <value>
+                <fullName>Sub-Contractor</fullName>
+                <default>false</default>
+                <label>Sub-Contractor</label>
+            </value>
+            <value>
+                <fullName>Tenant</fullName>
+                <default>false</default>
+                <label>Tenant</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

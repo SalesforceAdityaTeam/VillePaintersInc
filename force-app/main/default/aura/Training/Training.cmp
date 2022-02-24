@@ -1,0 +1,48 @@
+<aura:component controller="TrainingController" >
+    <aura:attribute name="title" type="String" default="Training"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/> 
+    <aura:attribute name="mapValues" type="object" />
+    
+    <lightning:card >
+        <aura:set attribute="title">
+            <lightning:icon iconName="utility:connected_apps" size="small"/>{! v.title }</aura:set>
+        <aura:set attribute="footer">
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            Welcome to your Salesforce.com Training Page. The following training
+                content has been created for your review and should familiarize you
+                with the features that have been created specifically for your company. Enjoy!! 
+        </p>
+        <br/>
+        <lightning:tabset variant="scoped">
+            <aura:iteration items="{!v.mapValues}"  var="mapKey" indexVar="key">
+                <lightning:tab label="{!mapKey.key}">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                        <thead>
+                            <tr class="slds-line-height_reset" style="background-color: #e1e3e5;">
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="NAME">NAME</div>
+                                </th>
+                                <th class="" scope="col">
+                                    <div class="slds-truncate" title="LINK">LINK</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <aura:iteration items="{!mapKey.value}" var="mapValue">
+                                <tr class="slds-hint-parent">
+                                    <td data-label="NAME">
+                                        <div class="slds-truncate" title="{!mapValue.Name__c}">{!mapValue.Name__c}</div>
+                                    </td>
+                                    <td data-label="NAME">
+                                        <div class="slds-truncate" title=""><a href="{! 'http://' + mapValue.Link__c }" target="_blank" >{!mapValue.Link__c} </a></div>
+                                    </td>
+                                </tr>
+                            </aura:iteration> 
+                        </tbody>
+                    </table>
+                </lightning:tab>
+            </aura:iteration>
+        </lightning:tabset>
+    </lightning:card>
+</aura:component>

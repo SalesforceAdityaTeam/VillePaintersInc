@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Bid_Lost</fullName>
+        <description>Bid Lost</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>admin@villepainters.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/On_Bid_Lost</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_alert_on_Payment_Received</fullName>
+        <ccEmails>mayanksnuage@gmail.com</ccEmails>
+        <description>Email alert on Payment Received</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Opportunity_Payment_Received</template>
+    </alerts>
+    <alerts>
+        <fullName>Invoice_paid_date_filled_reminder</fullName>
+        <description>Invoice paid date filled reminder</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>admin@villepainters.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Opportunity_Payment_Received</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_Email_When_of_Job_Completed_Changes</fullName>
+        <description>Send Email When % of Job Completed Changes</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Job_Completed_in</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Update_Oppo_Stage</fullName>
+        <field>StageName</field>
+        <literalValue>Initial Contact</literalValue>
+        <name>Update Oppo Stage</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_PEP_Stage_to_Bid_Lost</fullName>
+        <field>StageName</field>
+        <literalValue>Bid Lost</literalValue>
+        <name>Update PEP Stage to Bid Lost</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_PEP_Stage_to_eBid_Won_Declined</fullName>
+        <field>StageName</field>
+        <literalValue>Bid won</literalValue>
+        <name>Update PEP Stage to eBid Won/Declined</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Commercial Opportunity Bid Lost</fullName>
+        <actions>
+            <name>Bid_Lost</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Commercial</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Bid Lost</value>
+        </criteriaItems>
+        <description>For Commercial Oppo - Update PEP Stage Job Declined to Bid Lost.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>For Commercial Oppo - Update PEP Stage Job Declined to Bid Lost%2E</fullName>
+        <actions>
+            <name>Update_PEP_Stage_to_Bid_Lost</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Commercial</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Job Declined</value>
+        </criteriaItems>
+        <description>For Commercial Oppo - Update PEP Stage Job Declined to Bid Lost.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Invoice Paid Date Updated</fullName>
+        <actions>
+            <name>Email_alert_on_Payment_Received</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Send email notification as soon as Invoice Paid Date updated.</description>
+        <formula>ISCHANGED( Invoice_Paid__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Send Email When Job %25 Completed Field updates</fullName>
+        <actions>
+            <name>Send_Email_When_of_Job_Completed_Changes</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <description>Send email notification as soon as Invoice Paid Date updated.</description>
+        <formula>ISCHANGED(Job_Completed__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Three Days from Invoice date filled</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Residential,Commercial</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Invoice_paid_date_filled_reminder</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Opportunity.Invoice_Paid__c</offsetFromField>
+            <timeLength>3</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Update Opportunity Stage that Created from Lead Conversion</fullName>
+        <actions>
+            <name>Update_Oppo_Stage</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.From_Lead__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>On Lead Conversion, update Opportunity Stage to Initial Contact</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update PEP Stage Job Won to Bid Won</fullName>
+        <actions>
+            <name>Update_PEP_Stage_to_eBid_Won_Declined</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Commercial</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Job Won</value>
+        </criteriaItems>
+        <description>For Commercial Oppo - Update PEP Stage Job Won to Bid Won.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

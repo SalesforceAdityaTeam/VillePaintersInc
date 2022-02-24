@@ -1,0 +1,213 @@
+<apex:page lightningStylesheets="true" standardController="Project_Relationships__c" recordSetvar="case" tabStyle="Project__c" extensions="ProjectRelationshipCtrl">
+<apex:slds />
+  
+  <div class="slds-scope">
+ <apex:form id="form">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <style type="text/css">
+    [data-toggle="toggle"] {
+        display: none;
+    }
+ .customPopup {
+    background-color: #f8f8f8;
+    border-style: solid;
+    border-width: 2px;
+    left: 26%;
+    padding: 20px;
+    position: absolute;
+    z-index: 9999;
+    width: 50%;
+    top: 22%;
+}
+
+.disabledTextBox {
+    background-color: white;
+    border: 1px solid;
+    color: black;
+    cursor: default;
+    width: 90px;
+    display: table;
+    padding: 2px 1px;
+    text-align:right;
+}   
+
+.closeButton {
+    float: right;
+}
+.requiredInput{
+    float: left;
+}
+  </style>
+  
+  <script>
+      $(document).ready(function() {
+        $('[data-toggle="toggle"]').change(function(){
+            $(this).parents().next('.hide').toggle();
+        });
+      
+      $('.hidesymbole').click(function(){
+          $(this).children('.add').toggle();
+          $(this).children('.sub').toggle();
+        });
+});
+  </script>
+     <center>
+          <apex:commandButton value="Save" action="{!SaveAll}" styleClass="slds-button slds-button_brand" />
+         <apex:commandButton value="Cancel" action="{!cancel}" styleClass="slds-button slds-button_brand" />
+     </center>
+     <br/>
+ <table width="100%" class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered">
+    <thead>
+        <tr class="slds-line-height_reset" >
+            <th></th>
+            <th style="width: 17%;">Account</th>
+            <th style="width: 15%;">Role</th>
+            <th style="width: 10%;">Attitude</th>
+            <th style="width: 10%;">Attitude KPI</th>
+            <th style="width: 15%;">
+                Comments
+            </th>
+            <th >
+                <apex:commandButton value="Add Account" action="{!addNewAccount}" styleClass="slds-button slds-button_brand"  rerender="form"  />
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody >
+        <apex:repeat value="{!lstWC}" var="objParent">
+        <tbody class="labels">
+            <tr class="slds-hint-parent" style="background-color: darkgray !important;">
+                <td style="width: 10px;">
+                    <label for="{!objParent.rowNumber}" class="hidesymbole" style="font-size: 25px;font-weight: 800;"> <span class="add">-</span> <span class="sub" style="display:none">+</span> </label>
+                    <input type="checkbox" name="{!objParent.rowNumber}" id="{!objParent.rowNumber}" data-toggle="toggle" style="display:none" />
+                </td>
+                <td>
+                    <apex:inputField value="{!objParent.PR.Account__c}" />
+                    <apex:commandButton value="Create Account" rendered="{!IF(objParent.PR.Account__c != null,false,true)}" style="margin-right: 30px;" styleClass="slds-button slds-button_brand" action="{!showPopup}" rerender="popup"  >
+                        <apex:param name="paramValue" value="{!objParent.rowNumber}" assignTo="{!paramValue}" /> 
+                        <apex:param name="popupType" value="Account" assignTo="{!popupType}" />
+                    </apex:commandButton>
+                </td>
+                <td >
+                    <apex:inputField value="{!objParent.PR.Type__c}" />
+                </td>
+                <td >
+                    <apex:inputField value="{!objParent.PR.Attitude__c}" />
+                </td>
+                <td >
+                    <apex:outputField value="{!objParent.PR.Attitude_KPI__c}" />
+                </td>
+                <td colspan="1">
+                    <apex:inputField value="{!objParent.PR.Comments__c}" style="width: -webkit-fill-available;" />
+                </td>
+                <td colspan="7" >
+                    <apex:commandButton value="Delete" rendered="{!IF(objParent.PR.Account__c != null,true,false)}"  styleClass="slds-button slds-button_destructive" action="{!deleteAccount}" rerender="form" status="status"  >
+                        <apex:param name="paramValue" value="{!objParent.rowNumber}" assignTo="{!paramValue}" /> 
+                        <apex:param name="popupType" value="Account" assignTo="{!popupType}" />
+                    </apex:commandButton>
+                </td>
+            </tr>
+        </tbody>
+        <tbody class="hide">
+            <tr class="slds-hint-parent" >
+                <th colspan="4" ></th>
+                <th><b>Contact</b></th>
+                <th><b>Role</b></th>
+                <th><b>Attitude</b></th>
+                <th><b>Primary</b></th>
+                <th>
+                <apex:commandButton value="Add Contact" action="{!addNewContact}" styleClass="slds-button slds-button_brand" rerender="form" >
+                    <apex:param name="eventId" value="{!objParent.rowNumber}" assignTo="{!objParent.rowNumber}"/>
+                </apex:commandButton>
+            </th>
+            </tr>
+            <apex:repeat value="{!objParent.lstRC}" var="objchild" >
+                <tr class="slds-hint-parent">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td> <apex:inputField value="{!objchild.Contact__c}" >
+                            <apex:actionSupport event="onchange" reRender="popup,form" action="{!showPopupUpdate}">
+                                <apex:param name="paramValue" value="{!objParent.rowNumber}" assignTo="{!paramValue}" />
+                            </apex:actionSupport>
+                        </apex:inputField>
+                        <apex:commandButton value="Create Contact" rendered="{!IF(objchild.Contact__c != null,false,true)}" style="margin-right: 30px;" styleClass="slds-button slds-button_brand" action="{!showPopup}" rerender="popup" status="status"  >
+                            <apex:param name="paramValue" value="{!objParent.rowNumber}" assignTo="{!paramValue}" /> 
+                            <apex:param name="popupType" value="Contact" assignTo="{!popupType}" />
+                        </apex:commandButton>
+                    </td>
+                    <td>
+                        <apex:inputField value="{!objchild.ContactRole__c}" />
+                        <!-- <apex:inputField value="{!objchild.Contact_Role__c}" /> -->
+                    </td>
+                    <td><apex:inputField value="{!objchild.Attitude__c}" /></td>
+                    <td><apex:inputField value="{!objchild.Primary__c}" html-chkid="{!objParent.rowNumber}" onclick="uncheckOther(this);"/></td>
+                    <td>
+                        <apex:commandButton value="Delete" rendered="{!IF(objchild.Contact__c != null,true,false)}"  styleClass="slds-button slds-button_destructive" action="{!deleteAccount}" rerender="form" status="status" >
+                            <apex:param name="paramValue" value="{!objParent.rowNumber}" assignTo="{!paramValue}" /> 
+                            <apex:param name="contactIdToDelete" value="{!objchild.Contact__c}" assignTo="{!contactIdToDelete}" /> 
+                            <apex:param name="popupType" value="Contact" assignTo="{!popupType}" />
+                        </apex:commandButton>
+                    </td>
+                </tr>
+            </apex:repeat>
+        </tbody>
+            </apex:repeat>
+    </tbody>
+</table> 
+  <script>
+    function uncheckOther(chkObj){
+      console.log(chkObj);
+      var query = "[chkid='"+ chkObj.getAttribute('chkid') +"']";
+      console.log(query);
+      var primaryCheckboxes = document.querySelectorAll(query);
+      for(var i=0; i<primaryCheckboxes.length; i++){
+        console.log(primaryCheckboxes[i]);
+        if(chkObj != primaryCheckboxes[i]){
+          primaryCheckboxes[i].checked = false;
+        }
+      }
+    }
+  </script>
+     
+     <apex:outputPanel id="popup">
+         
+         
+                <apex:outputPanel id="popInnerOutputPnl" styleClass="customPopup" layout="block" rendered="{!displayPopUp}">
+         <apex:pageblock >
+                    <apex:commandButton value="Back"  title="Close the popup" action="{!closePopup}" styleClass="closeButton" rerender="popup,form">
+                     </apex:commandButton>
+                 <apex:pageblockSection title="Create Account"  collapsible="False" columns="1" rendered="{!IF(popupType == 'Account',true,false)}" >                         
+                         <apex:inputField value="{!popupAcc.Name}" required="false" />
+                         <apex:inputField value="{!popupAcc.Type}" required="false" />
+                         <apex:inputField value="{!popupAcc.Industry}"  required="false" />
+                         <apex:inputField value="{!popupAcc.ShippingCountry}" required="false" />
+                         <apex:inputField value="{!popupAcc.ShippingStreet}"  />
+                         <apex:inputField value="{!popupAcc.ShippingCity}"  />
+                         <apex:inputField value="{!popupAcc.ShippingState}"   />
+                         <apex:inputField value="{!popupAcc.ShippingPostalCode}"  />
+                     </apex:pageblockSection>
+                     
+                     <apex:pageblockSection title="Create Contact {!paramValue}"  collapsible="False" columns="1" rendered="{!IF(popupType == 'Contact',true,false)}" >                         
+                         <apex:inputField value="{!popupCon.FirstName}"  />
+                         <apex:inputField value="{!popupCon.LastName}" required="false" />
+                         <apex:inputField value="{!popupCon.Function__c}" required="false" />
+                         <apex:inputField value="{!popupCon.MailingCountry}" required="false" />
+                         <apex:inputField value="{!popupCon.MailingStreet}"  />
+                         <apex:inputField value="{!popupCon.MailingCity}"  />
+                         <apex:inputField value="{!popupCon.MailingState}"   />
+                         <apex:inputField value="{!popupCon.MailingPostalCode}" required="false" />
+                     </apex:pageblockSection>
+                    
+                     <apex:commandButton value="Save" action="{!redirectPopup}" styleClass="closeButton" rerender="popup,form"  >
+                     </apex:commandButton>
+             </apex:pageblock>
+                </apex:outputPanel>
+            </apex:outputPanel>
+     
+</apex:form>
+</div>
+</apex:page>

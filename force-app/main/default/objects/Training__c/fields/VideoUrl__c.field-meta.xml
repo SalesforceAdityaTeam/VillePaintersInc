@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VideoUrl__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK( Link__c &amp; &apos;?vydata=&apos;&amp;  $User.Username   , &apos;Click Here&apos; , &apos;_target&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Video Url</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

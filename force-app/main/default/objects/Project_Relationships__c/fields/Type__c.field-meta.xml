@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Referred By</fullName>
+                <default>false</default>
+                <label>Referred By</label>
+            </value>
+            <value>
+                <fullName>Construction Manager</fullName>
+                <default>false</default>
+                <label>Construction Manager</label>
+            </value>
+            <value>
+                <fullName>General Contractor</fullName>
+                <default>false</default>
+                <label>General Contractor</label>
+            </value>
+            <value>
+                <fullName>Sub-Contractor</fullName>
+                <default>false</default>
+                <label>Sub-Contractor</label>
+            </value>
+            <value>
+                <fullName>Owner</fullName>
+                <default>false</default>
+                <label>Owner</label>
+            </value>
+            <value>
+                <fullName>Home Owner</fullName>
+                <default>false</default>
+                <label>Home Owner</label>
+            </value>
+            <value>
+                <fullName>Spouse</fullName>
+                <default>false</default>
+                <label>Spouse</label>
+            </value>
+            <value>
+                <fullName>Family Member</fullName>
+                <default>false</default>
+                <label>Family Member</label>
+            </value>
+            <value>
+                <fullName>Interior Decorator</fullName>
+                <default>false</default>
+                <label>Interior Decorator</label>
+            </value>
+            <value>
+                <fullName>Tenant</fullName>
+                <default>false</default>
+                <label>Tenant</label>
+            </value>
+            <value>
+                <fullName>Landlord</fullName>
+                <default>false</default>
+                <label>Landlord</label>
+            </value>
+            <value>
+                <fullName>Business Owner</fullName>
+                <default>false</default>
+                <label>Business Owner</label>
+            </value>
+            <value>
+                <fullName>Sales Rep</fullName>
+                <default>false</default>
+                <label>Sales Rep</label>
+            </value>
+            <value>
+                <fullName>AP Contact</fullName>
+                <default>false</default>
+                <label>AP Contact</label>
+            </value>
+            <value>
+                <fullName>Board Member</fullName>
+                <default>false</default>
+                <label>Board Member</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

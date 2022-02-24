@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Project_Source__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Project Source shows where this project came from</inlineHelpText>
+    <label>Project Source</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Internet</fullName>
+                <default>false</default>
+                <label>Internet</label>
+            </value>
+            <value>
+                <fullName>Signs/Vans</fullName>
+                <default>false</default>
+                <label>Signs/Vans</label>
+            </value>
+            <value>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+                <label>Direct Mail</label>
+            </value>
+            <value>
+                <fullName>Social Media</fullName>
+                <default>false</default>
+                <label>Social Media</label>
+            </value>
+            <value>
+                <fullName>Trade Show</fullName>
+                <default>false</default>
+                <label>Trade Show</label>
+            </value>
+            <value>
+                <fullName>Community Inv</fullName>
+                <default>false</default>
+                <label>Community Inv</label>
+            </value>
+            <value>
+                <fullName>Repeat Customer</fullName>
+                <default>false</default>
+                <label>Repeat Customer</label>
+            </value>
+            <value>
+                <fullName>Referral</fullName>
+                <default>false</default>
+                <label>Referral</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Didn&apos;t Share</fullName>
+                <default>false</default>
+                <label>Didn&apos;t Share</label>
+            </value>
+            <value>
+                <fullName>Contractor Bid List</fullName>
+                <default>false</default>
+                <label>Contractor Bid List</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

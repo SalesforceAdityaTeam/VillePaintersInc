@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activity_Status_KPI__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Activity_Status__c = &apos;Neglected&apos; ,IMAGE(&apos;/resource/ActvityStatusKPI/Red.gif&apos;, &apos;Neglected&apos;),
+IF( Activity_Status__c = &apos;At Risk&apos; ,IMAGE(&apos;/resource/ActvityStatusKPI/yellow.gif&apos;, &apos;At Risk&apos;),
+IF( Activity_Status__c = &apos;Current&apos; ,IMAGE(&apos;/resource/ActvityStatusKPI/Green.gif&apos;, &apos;Current&apos;),&apos;N/A&apos;
+)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Activity Status KPI</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

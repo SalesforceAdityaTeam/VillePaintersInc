@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Staff_Role__c</fullName>
+    <externalId>false</externalId>
+    <label>Staff Role</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PE</fullName>
+                <default>false</default>
+                <label>PE</label>
+            </value>
+            <value>
+                <fullName>PM</fullName>
+                <default>false</default>
+                <label>PM</label>
+            </value>
+            <value>
+                <fullName>PM/Supt</fullName>
+                <default>false</default>
+                <label>PM/Supt</label>
+            </value>
+            <value>
+                <fullName>Precon</fullName>
+                <default>false</default>
+                <label>Precon</label>
+            </value>
+            <value>
+                <fullName>Proj. Ex.</fullName>
+                <default>false</default>
+                <label>Proj. Ex.</label>
+            </value>
+            <value>
+                <fullName>PX</fullName>
+                <default>false</default>
+                <label>PX</label>
+            </value>
+            <value>
+                <fullName>Sr. PM</fullName>
+                <default>false</default>
+                <label>Sr. PM</label>
+            </value>
+            <value>
+                <fullName>Supt</fullName>
+                <default>false</default>
+                <label>Supt</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

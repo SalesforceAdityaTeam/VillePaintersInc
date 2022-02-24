@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Commercial Page Layout</layout>
+        <sections>
+            <label></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Job Description</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Opportunity Layout</layout>
+        <sections>
+            <label></label>
+            <section>Job Description</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Opportunity Screen Layout</layout>
+        <sections>
+            <label></label>
+            <section>Contact</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Estimate in PEP</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Invoiced/Payment Received</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Job Completed</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Job Lost</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Job Won</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Sales Appointment</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Residential Page Layout</layout>
+        <sections>
+            <label></label>
+            <section>Job Description</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

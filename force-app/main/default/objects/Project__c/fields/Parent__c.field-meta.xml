@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF (Parent_Project__c=&apos;&apos; , &quot;Parent&quot;,&quot;Child&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Parent is a formula that tells you if this Project is a Parent or Child Project. If this project is linked to a Parent Project then it assumes it is a &quot;Child&quot; Project.</inlineHelpText>
+    <label>Parent</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

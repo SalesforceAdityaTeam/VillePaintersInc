@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Residential_Jobs_to_be_Scheduled</fullName>
+    <columns>NAME</columns>
+    <columns>Project_Scope__c</columns>
+    <columns>Sold_Dead_Date__c</columns>
+    <columns>Job_Amount__c</columns>
+    <columns>Deposit_Collected_Date__c</columns>
+    <columns>Deposit_Amount__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>Reporting_Month__c</columns>
+    <columns>Stage__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Stage__c</field>
+        <operation>equals</operation>
+        <value>Job Accepted</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Project__c.Residential</value>
+    </filters>
+    <label>3 Residential Jobs to be Scheduled</label>
+</ListView>

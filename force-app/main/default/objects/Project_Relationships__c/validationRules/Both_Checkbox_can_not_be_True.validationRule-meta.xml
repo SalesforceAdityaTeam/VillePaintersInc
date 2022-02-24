@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Both_Checkbox_can_not_be_True</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( Use_Account_as_Project_Address__c, Use_Contact_as_Project_Address__c)</errorConditionFormula>
+    <errorMessage>Both Use as Project Address check box can not be true.</errorMessage>
+</ValidationRule>

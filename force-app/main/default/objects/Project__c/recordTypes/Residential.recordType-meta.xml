@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Residential</fullName>
+    <active>true</active>
+    <label>Residential</label>
+    <picklistValues>
+        <picklist>Division__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>8</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>9</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Job_Completed__c</picklist>
+        <values>
+            <fullName>0%25%2C25%25%2C50%25%2C75%25%2C 100%25</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Loss_Reason__c</picklist>
+        <values>
+            <fullName>Lost to Competitor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Budget%2FLost Funding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Decision%2FNon- Responsive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Project_Scope__c</picklist>
+        <values>
+            <fullName>Carpentry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Exterior</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Interior</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Power Washing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wall Covering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wall Covering Stripping</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Project_Source__c</picklist>
+        <values>
+            <fullName>Community Inv</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Contractor Bid List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Didn%27t Share</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Mail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Internet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repeat Customer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signs%2FVans</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Social Media</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stage__c</picklist>
+        <values>
+            <fullName>Estimate Sent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Job Accepted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Job Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Job Declined</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Appointment Set</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scheduled</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Closed - Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - Won</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dead</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Existing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New Business</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
